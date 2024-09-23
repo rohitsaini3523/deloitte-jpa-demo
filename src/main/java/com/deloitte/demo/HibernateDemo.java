@@ -1,10 +1,10 @@
 package com.deloitte.demo;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-
-import java.util.List;
 
 public class HibernateDemo {
 
@@ -19,16 +19,16 @@ public class HibernateDemo {
 
 			session.beginTransaction();
 
-			// HQL - Hibernate query language - JPQL : Java/Jakarta Persistance 
+			// HQL - Hibernate query language - JPQL : Java/Jakarta Persistance
 			List<Employee> employees = session.createQuery("from Employee", Employee.class).getResultList();
-			
-			//createNativeQuery - SQL query 
+
+			// createNativeQuery - SQL query
 
 			// methods for Crud Operations
 //			session.find(null, employees); // returns 1 employee
 //			session.update(emp);
 //			session.remove(emp);
-			
+			System.out.println("Employee Details: ");
 			for (Employee emp : employees) {
 				System.out.println(emp);
 			}
